@@ -12,15 +12,13 @@ namespace Finance_Manager
 {
     public partial class FinanceManagerMain : Form
     {
-        private Panel menuPanel;
-        private Button burgerButton;
+        
         private bool menuIsVisible = false;
 
         public FinanceManagerMain()
         {
+
             InitializeComponent();
-            InitializeMenu();
-            
 
         }
 
@@ -63,32 +61,9 @@ namespace Finance_Manager
                     break;
             }
         }
-        private void InitializeMenu()
-        {
-            burgerButton = new Button
-            {
-                Location = new Point(10, 10),
-                Width = 30,
-                Height = 30,
-                Text = "☰",
-                FlatStyle = FlatStyle.Flat,
-                BackColor = Color.Transparent,
-                Visible = true
-            };
-            burgerButton.Click += BurgerButton_Click;
-            this.Controls.Add(burgerButton);
 
-            menuPanel = new Panel
-            {
-                Dock = DockStyle.Left,
-                Width = 200,
-                BackColor = Color.LightGray,
-                Visible = false
-            };
 
-            AddMenuItems();
-            this.Controls.Add(menuPanel);
-        }
+       
 
         private void AddMenuItems()
         {
@@ -108,7 +83,25 @@ namespace Finance_Manager
             }
         }
 
+        private void menuPanel_Paint(object sender, PaintEventArgs e)
+        {
 
-        
+        }
+
+        private void burgerButton_Click_1(object sender, EventArgs e)
+        {
+            Panel menu = menuPanel;
+
+            menu.Visible = !menu.Visible;
+
+            if (menu.Visible)
+            {
+                burgerButton.Text = "×";
+            }
+            else
+            {
+                burgerButton.Text = "☰";
+            }
+        }
     }
 }

@@ -31,6 +31,8 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FinanceManagerMain));
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.menuPanel = new System.Windows.Forms.Panel();
+            this.burgerButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // contextMenuStrip1
@@ -38,10 +40,27 @@
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             resources.ApplyResources(this.contextMenuStrip1, "contextMenuStrip1");
             // 
+            // menuPanel
+            // 
+            this.menuPanel.BackColor = System.Drawing.Color.LightGray;
+            resources.ApplyResources(this.menuPanel, "menuPanel");
+            this.menuPanel.Name = "menuPanel";
+            this.menuPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.menuPanel_Paint);
+            // 
+            // burgerButton
+            // 
+            this.burgerButton.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.burgerButton, "burgerButton");
+            this.burgerButton.Name = "burgerButton";
+            this.burgerButton.UseVisualStyleBackColor = false;
+            this.burgerButton.Click += new System.EventHandler(this.burgerButton_Click_1);
+            // 
             // FinanceManagerMain
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.burgerButton);
+            this.Controls.Add(this.menuPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -54,6 +73,8 @@
         #endregion
 
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.Panel menuPanel;
+        private System.Windows.Forms.Button burgerButton;
     }
 }
 
