@@ -17,30 +17,16 @@ namespace Finance_Manager
 
         public FinanceManagerMain()
         {
-
             InitializeComponent();
-
+            AddMenuItems();
         }
 
         private void MainForm_Load(object sender, EventArgs e)
         {
             burgerButton.Visible = true;
-            menuPanel.Visible = true;
-        }
-        private void BurgerButton_Click(object sender, EventArgs e)
-        {
-            menuIsVisible = !menuIsVisible;
             menuPanel.Visible = menuIsVisible;
-
-            if (menuIsVisible)
-            {
-                burgerButton.Text = "×";
-            }
-            else
-            {
-                burgerButton.Text = "☰";
-            }
         }
+       
         private void MenuItem_Click(object sender, EventArgs e)
         {
             var button = (Button)sender;
@@ -55,8 +41,11 @@ namespace Finance_Manager
                 case "Графики":
                     break;
                 case "Настройки":
+                    break;
                 case "Регулярный платеж":
+                    break;
                 case "Дизайн":
+                    break;
                 case "Валюта":
                     break;
             }
@@ -85,7 +74,7 @@ namespace Finance_Manager
 
         private void menuPanel_Paint(object sender, PaintEventArgs e)
         {
-
+            
         }
 
         private void burgerButton_Click_1(object sender, EventArgs e)
