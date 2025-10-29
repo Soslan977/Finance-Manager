@@ -67,6 +67,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="models\Category.cs" />
+    <Compile Include="models\User.cs" />
     <Compile Include="UI\Forms\Dizain.cs">
       <SubType>Form</SubType>
     </Compile>
