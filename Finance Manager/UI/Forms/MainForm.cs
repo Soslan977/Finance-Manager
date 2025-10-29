@@ -7,18 +7,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Finance_Manager.UI.Forms;
 
 namespace Finance_Manager
 {
     public partial class FinanceManagerMain : Form
     {
-        
+        public static FinanceManagerMain Instance { get; private set; }
         private bool menuIsVisible = false;
 
         public FinanceManagerMain()
         {
             InitializeComponent();
             AddMenuItems();
+            Instance = this;
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -26,7 +28,16 @@ namespace Finance_Manager
             burgerButton.Visible = true;
             menuPanel.Visible = menuIsVisible;
         }
-       
+        private void ShowForm(Form newForm)
+        {
+            this.Hide();
+
+            newForm.Show();
+
+            // При закрытии новой формы - показываем главную
+            newForm.FormClosed += (s, args) => this.Show();
+        }
+
         private void MenuItem_Click(object sender, EventArgs e)
         {
             var button = (Button)sender;
@@ -35,18 +46,21 @@ namespace Finance_Manager
             switch (button.Text)
             {
                 case "Главная":
+                    ShowForm(new FinanceManagerMain());
                     break;
                 case "Категории":
+                    ShowForm(new Kategories());
                     break;
                 case "Графики":
-                    break;
-                case "Настройки":
+                    ShowForm(new Graphicss());
                     break;
                 case "Регулярный платеж":
                     break;
                 case "Дизайн":
+                    ShowForm(new Dizain());
                     break;
                 case "Валюта":
+                    ShowForm(new ChooseVallet());
                     break;
             }
         }
@@ -92,5 +106,22 @@ namespace Finance_Manager
                 burgerButton.Text = "☰";
             }
         }
+
+        private void Expensesbutton1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Доходы_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void AddTransaction_Click(object sender, EventArgs e)
+        {
+
+        }
+
+       
     }
 }

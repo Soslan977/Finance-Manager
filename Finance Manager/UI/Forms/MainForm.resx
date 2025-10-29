@@ -154,7 +154,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;menuPanel.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>6</value>
   </data>
   <data name="burgerButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
@@ -181,7 +181,112 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;burgerButton.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>5</value>
+  </data>
+  <data name="Расходы.Location" type="System.Drawing.Point, System.Drawing">
+    <value>330, 12</value>
+  </data>
+  <data name="Расходы.Size" type="System.Drawing.Size, System.Drawing">
+    <value>107, 39</value>
+  </data>
+  <data name="Расходы.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="Расходы.Text" xml:space="preserve">
+    <value>Расходы</value>
+  </data>
+  <data name="&gt;&gt;Расходы.Name" xml:space="preserve">
+    <value>Расходы</value>
+  </data>
+  <data name="&gt;&gt;Расходы.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Расходы.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;Расходы.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="Доходы.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="Доходы.Location" type="System.Drawing.Point, System.Drawing">
+    <value>855, 10</value>
+  </data>
+  <data name="Доходы.Size" type="System.Drawing.Size, System.Drawing">
+    <value>107, 39</value>
+  </data>
+  <data name="Доходы.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="Доходы.Text" xml:space="preserve">
+    <value>Доходы</value>
+  </data>
+  <data name="&gt;&gt;Доходы.Name" xml:space="preserve">
+    <value>Доходы</value>
+  </data>
+  <data name="&gt;&gt;Доходы.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Доходы.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;Доходы.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="AddTransaction.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="AddTransaction.Location" type="System.Drawing.Point, System.Drawing">
+    <value>855, 487</value>
+  </data>
+  <data name="AddTransaction.Size" type="System.Drawing.Size, System.Drawing">
+    <value>107, 39</value>
+  </data>
+  <data name="AddTransaction.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="AddTransaction.Text" xml:space="preserve">
+    <value>Добавить Транзакцию</value>
+  </data>
+  <data name="&gt;&gt;AddTransaction.Name" xml:space="preserve">
+    <value>AddTransaction</value>
+  </data>
+  <data name="&gt;&gt;AddTransaction.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;AddTransaction.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;AddTransaction.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="Balance.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="Balance.Location" type="System.Drawing.Point, System.Drawing">
+    <value>206, 241</value>
+  </data>
+  <data name="Balance.Size" type="System.Drawing.Size, System.Drawing">
+    <value>136, 63</value>
+  </data>
+  <data name="Balance.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="Balance.Text" xml:space="preserve">
+    <value>Баланс</value>
+  </data>
+  <data name="&gt;&gt;Balance.Name" xml:space="preserve">
+    <value>Balance</value>
+  </data>
+  <data name="&gt;&gt;Balance.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Balance.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;Balance.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
