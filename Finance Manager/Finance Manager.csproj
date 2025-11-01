@@ -80,6 +80,12 @@
     <Compile Include="UI\Forms\ChooseVallet.Designer.cs">
       <DependentUpon>ChooseVallet.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Forms\AddTransactionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Forms\AddTransactionForm.Designer.cs">
+      <DependentUpon>AddTransactionForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Forms\Kategories.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -107,6 +113,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Forms\ChooseVallet.resx">
       <DependentUpon>ChooseVallet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Forms\AddTransactionForm.resx">
+      <DependentUpon>AddTransactionForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Forms\Kategories.resx">
       <DependentUpon>Kategories.cs</DependentUpon>

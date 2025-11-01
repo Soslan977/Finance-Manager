@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
+using Finance_Manager.models;
 using Finance_Manager.UI.Forms;
 
 namespace Finance_Manager
@@ -15,12 +17,23 @@ namespace Finance_Manager
     {
         public static FinanceManagerMain Instance { get; private set; }
         private bool menuIsVisible = false;
-
+        private List<Transaction> transactions = new List<Transaction>();
+        private bool isIncomeMode = true;
+        private List<string> categories = new List<string>();
         public FinanceManagerMain()
         {
             InitializeComponent();
             AddMenuItems();
             Instance = this;
+
+            chartGraphic.Series.Clear();
+            chartGraphic.Series.Add("Транзакции");
+            chartGraphic.Series[0].ChartType = SeriesChartType.Pie;
+            chartGraphic.Titles.Add("Распределение транзакций");
+
+            InitializeCategories();
+
+
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -37,7 +50,14 @@ namespace Finance_Manager
             // При закрытии новой формы - показываем главную
             newForm.FormClosed += (s, args) => this.Show();
         }
-
+        private void InitializeCategories()
+        {
+            categories.Add("Еда");
+            categories.Add("Транспорт");
+            categories.Add("Развлечения");
+            categories.Add("Коммунальные услуги");
+            categories.Add("Другое");
+        }
         private void MenuItem_Click(object sender, EventArgs e)
         {
             var button = (Button)sender;
