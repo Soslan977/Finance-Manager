@@ -30,6 +30,12 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FinanceManagerMain));
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.menuPanel = new System.Windows.Forms.Panel();
             this.burgerButton = new System.Windows.Forms.Button();
@@ -37,6 +43,10 @@
             this.Доходы = new System.Windows.Forms.Button();
             this.AddTransaction = new System.Windows.Forms.Button();
             this.Balance = new System.Windows.Forms.Button();
+            this.chartGraphic = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.chart2 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            ((System.ComponentModel.ISupportInitialize)(this.chartGraphic)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chart2)).BeginInit();
             this.SuspendLayout();
             // 
             // contextMenuStrip1
@@ -86,10 +96,38 @@
             this.Balance.Name = "Balance";
             this.Balance.UseVisualStyleBackColor = true;
             // 
+            // chartGraphic
+            // 
+            chartArea1.Name = "ChartArea1";
+            this.chartGraphic.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chartGraphic.Legends.Add(legend1);
+            resources.ApplyResources(this.chartGraphic, "chartGraphic");
+            this.chartGraphic.Name = "chartGraphic";
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.chartGraphic.Series.Add(series1);
+            // 
+            // chart2
+            // 
+            chartArea2.Name = "ChartArea1";
+            this.chart2.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.chart2.Legends.Add(legend2);
+            resources.ApplyResources(this.chart2, "chart2");
+            this.chart2.Name = "chart2";
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            this.chart2.Series.Add(series2);
+            // 
             // FinanceManagerMain
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.chart2);
+            this.Controls.Add(this.chartGraphic);
             this.Controls.Add(this.Balance);
             this.Controls.Add(this.AddTransaction);
             this.Controls.Add(this.Доходы);
@@ -101,6 +139,8 @@
             this.MinimizeBox = false;
             this.Name = "FinanceManagerMain";
             this.Load += new System.EventHandler(this.MainForm_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.chartGraphic)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chart2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -114,6 +154,8 @@
         private System.Windows.Forms.Button Доходы;
         private System.Windows.Forms.Button AddTransaction;
         private System.Windows.Forms.Button Balance;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chartGraphic;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart2;
     }
 }
 

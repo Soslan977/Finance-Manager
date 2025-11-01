@@ -49,6 +49,7 @@
             this.GoBack.TabIndex = 1;
             this.GoBack.Text = "🡸";
             this.GoBack.UseVisualStyleBackColor = true;
+            this.GoBack.Click += new System.EventHandler(this.GoBack_Click);
             // 
             // groupBoxIncome
             // 

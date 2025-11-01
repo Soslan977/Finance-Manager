@@ -39,5 +39,11 @@ namespace Finance_Manager.UI.Forms
                 btnAddCategory_Click(sender, e);
             }
         }
+
+        private void GoBack_Click(object sender, EventArgs e)
+        {
+            FinanceManagerMain.Instance.Show();
+            this.Close();
+        }
     }
 }

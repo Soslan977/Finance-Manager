@@ -31,13 +31,14 @@
             this.Chosetheme = new System.Windows.Forms.Label();
             this.DarkTheme = new System.Windows.Forms.Button();
             this.LightTheme = new System.Windows.Forms.Button();
+            this.GoBack = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // Chosetheme
             // 
             this.Chosetheme.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.Chosetheme.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Chosetheme.Location = new System.Drawing.Point(12, 9);
+            this.Chosetheme.Location = new System.Drawing.Point(79, 9);
             this.Chosetheme.Name = "Chosetheme";
             this.Chosetheme.Size = new System.Drawing.Size(91, 35);
             this.Chosetheme.TabIndex = 0;
@@ -46,7 +47,7 @@
             // 
             // DarkTheme
             // 
-            this.DarkTheme.Location = new System.Drawing.Point(12, 63);
+            this.DarkTheme.Location = new System.Drawing.Point(79, 63);
             this.DarkTheme.Name = "DarkTheme";
             this.DarkTheme.Size = new System.Drawing.Size(88, 40);
             this.DarkTheme.TabIndex = 1;
@@ -55,18 +56,29 @@
             // 
             // LightTheme
             // 
-            this.LightTheme.Location = new System.Drawing.Point(12, 127);
+            this.LightTheme.Location = new System.Drawing.Point(79, 127);
             this.LightTheme.Name = "LightTheme";
             this.LightTheme.Size = new System.Drawing.Size(88, 40);
             this.LightTheme.TabIndex = 2;
             this.LightTheme.Text = "Светлая Тема";
             this.LightTheme.UseVisualStyleBackColor = true;
             // 
+            // GoBack
+            // 
+            this.GoBack.Location = new System.Drawing.Point(12, -1);
+            this.GoBack.Name = "GoBack";
+            this.GoBack.Size = new System.Drawing.Size(33, 37);
+            this.GoBack.TabIndex = 3;
+            this.GoBack.Text = "🡸";
+            this.GoBack.UseVisualStyleBackColor = true;
+            this.GoBack.Click += new System.EventHandler(this.GoBack_Click);
+            // 
             // Dizain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1039, 598);
+            this.Controls.Add(this.GoBack);
             this.Controls.Add(this.LightTheme);
             this.Controls.Add(this.DarkTheme);
             this.Controls.Add(this.Chosetheme);
@@ -85,5 +97,6 @@
         private System.Windows.Forms.Label Chosetheme;
         private System.Windows.Forms.Button DarkTheme;
         private System.Windows.Forms.Button LightTheme;
+        private System.Windows.Forms.Button GoBack;
     }
 }

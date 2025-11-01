@@ -21,5 +21,11 @@ namespace Finance_Manager.UI.Forms
         {
 
         }
+
+        private void GoBack_Click(object sender, EventArgs e)
+        {
+            FinanceManagerMain.Instance.Show();
+            this.Close();
+        }
     }
 }
