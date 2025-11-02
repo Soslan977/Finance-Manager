@@ -13,6 +13,7 @@ namespace Finance_Manager.models
         public decimal Amount { get; set; }
         public DateTime Date { get; set; }
         public string Category { get; set; }
+        public bool IsIncome { get; set; }
 
     }
 }

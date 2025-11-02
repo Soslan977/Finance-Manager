@@ -43,7 +43,6 @@
             this.Chosetheme.Size = new System.Drawing.Size(91, 35);
             this.Chosetheme.TabIndex = 0;
             this.Chosetheme.Text = "Выбор Темы";
-            this.Chosetheme.Click += new System.EventHandler(this.label1_Click);
             // 
             // DarkTheme
             // 
@@ -53,6 +52,7 @@
             this.DarkTheme.TabIndex = 1;
             this.DarkTheme.Text = "Темная Тема";
             this.DarkTheme.UseVisualStyleBackColor = true;
+            this.DarkTheme.Click += new System.EventHandler(this.DarkTheme_Click_1);
             // 
             // LightTheme
             // 
@@ -62,6 +62,7 @@
             this.LightTheme.TabIndex = 2;
             this.LightTheme.Text = "Светлая Тема";
             this.LightTheme.UseVisualStyleBackColor = true;
+            this.LightTheme.Click += new System.EventHandler(this.LightTheme_Click);
             // 
             // GoBack
             // 

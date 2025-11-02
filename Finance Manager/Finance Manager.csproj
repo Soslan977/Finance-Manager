@@ -68,6 +68,7 @@
   <ItemGroup>
     <Compile Include="models\Category.cs" />
     <Compile Include="models\User.cs" />
+    <Compile Include="Settings.cs" />
     <Compile Include="UI\Forms\Dizain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -138,6 +139,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="app.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

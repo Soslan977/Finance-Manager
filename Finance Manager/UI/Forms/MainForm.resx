@@ -154,7 +154,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;menuPanel.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>7</value>
   </data>
   <data name="burgerButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
@@ -181,7 +181,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;burgerButton.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>6</value>
   </data>
   <data name="Расходы.Location" type="System.Drawing.Point, System.Drawing">
     <value>330, 12</value>
@@ -205,7 +205,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;Расходы.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>5</value>
   </data>
   <data name="Доходы.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -232,7 +232,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;Доходы.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>4</value>
   </data>
   <data name="AddTransaction.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -259,33 +259,6 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;AddTransaction.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="Balance.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="Balance.Location" type="System.Drawing.Point, System.Drawing">
-    <value>206, 241</value>
-  </data>
-  <data name="Balance.Size" type="System.Drawing.Size, System.Drawing">
-    <value>136, 63</value>
-  </data>
-  <data name="Balance.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="Balance.Text" xml:space="preserve">
-    <value>Баланс</value>
-  </data>
-  <data name="&gt;&gt;Balance.Name" xml:space="preserve">
-    <value>Balance</value>
-  </data>
-  <data name="&gt;&gt;Balance.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;Balance.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;Balance.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
   <data name="chartGraphic.Location" type="System.Drawing.Point, System.Drawing">
@@ -312,28 +285,28 @@
   <data name="&gt;&gt;chartGraphic.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="chart2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>209, 87</value>
+  <data name="lblBalance.Location" type="System.Drawing.Point, System.Drawing">
+    <value>259, 224</value>
   </data>
-  <data name="chart2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>27, 39</value>
+  <data name="lblBalance.Size" type="System.Drawing.Size, System.Drawing">
+    <value>148, 46</value>
   </data>
-  <data name="chart2.TabIndex" type="System.Int32, mscorlib">
+  <data name="lblBalance.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
   </data>
-  <data name="chart2.Text" xml:space="preserve">
-    <value>chart2</value>
+  <data name="lblBalance.Text" xml:space="preserve">
+    <value>label1</value>
   </data>
-  <data name="&gt;&gt;chart2.Name" xml:space="preserve">
-    <value>chart2</value>
+  <data name="&gt;&gt;lblBalance.Name" xml:space="preserve">
+    <value>lblBalance</value>
   </data>
-  <data name="&gt;&gt;chart2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataVisualization.Charting.Chart, System.Windows.Forms.DataVisualization, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35</value>
+  <data name="&gt;&gt;lblBalance.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;chart2.Parent" xml:space="preserve">
+  <data name="&gt;&gt;lblBalance.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;chart2.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;lblBalance.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">

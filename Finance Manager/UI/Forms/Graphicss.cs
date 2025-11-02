@@ -15,11 +15,8 @@ namespace Finance_Manager.UI.Forms
         public Graphicss()
         {
             InitializeComponent();
+
         }
-
-        
-
-        
 
         private void GoBack_Click(object sender, EventArgs e)
         {

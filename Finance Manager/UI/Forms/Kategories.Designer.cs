@@ -30,13 +30,14 @@
         {
             this.GoBack = new System.Windows.Forms.Button();
             this.groupBoxIncome = new System.Windows.Forms.GroupBox();
-            this.btnAddCategory = new System.Windows.Forms.Button();
-            this.txtNewCategory = new System.Windows.Forms.TextBox();
+            this.btnAddIncome = new System.Windows.Forms.Button();
+            this.txtIncomeInput = new System.Windows.Forms.TextBox();
             this.listBoxIncome = new System.Windows.Forms.ListBox();
             this.groupBoxExpense = new System.Windows.Forms.GroupBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtExpenseInput = new System.Windows.Forms.TextBox();
             this.listBoxExpense = new System.Windows.Forms.ListBox();
+            this.btnAddExpense = new System.Windows.Forms.Button();
             this.groupBoxIncome.SuspendLayout();
             this.groupBoxExpense.SuspendLayout();
             this.SuspendLayout();
@@ -53,8 +54,8 @@
             // 
             // groupBoxIncome
             // 
-            this.groupBoxIncome.Controls.Add(this.btnAddCategory);
-            this.groupBoxIncome.Controls.Add(this.txtNewCategory);
+            this.groupBoxIncome.Controls.Add(this.btnAddIncome);
+            this.groupBoxIncome.Controls.Add(this.txtIncomeInput);
             this.groupBoxIncome.Controls.Add(this.listBoxIncome);
             this.groupBoxIncome.Location = new System.Drawing.Point(87, 12);
             this.groupBoxIncome.Name = "groupBoxIncome";
@@ -63,22 +64,22 @@
             this.groupBoxIncome.TabStop = false;
             this.groupBoxIncome.Text = "Доходы";
             // 
-            // btnAddCategory
+            // btnAddIncome
             // 
-            this.btnAddCategory.Location = new System.Drawing.Point(6, 536);
-            this.btnAddCategory.Name = "btnAddCategory";
-            this.btnAddCategory.Size = new System.Drawing.Size(75, 23);
-            this.btnAddCategory.TabIndex = 3;
-            this.btnAddCategory.Text = "Добавить";
-            this.btnAddCategory.UseVisualStyleBackColor = true;
-            this.btnAddCategory.Click += new System.EventHandler(this.btnAddCategory_Click);
+            this.btnAddIncome.Location = new System.Drawing.Point(6, 536);
+            this.btnAddIncome.Name = "btnAddIncome";
+            this.btnAddIncome.Size = new System.Drawing.Size(75, 23);
+            this.btnAddIncome.TabIndex = 3;
+            this.btnAddIncome.Text = "Добавить";
+            this.btnAddIncome.UseVisualStyleBackColor = true;
+            this.btnAddIncome.Click += new System.EventHandler(this.btnAddIncome_Click);
             // 
-            // txtNewCategory
+            // txtIncomeInput
             // 
-            this.txtNewCategory.Location = new System.Drawing.Point(6, 510);
-            this.txtNewCategory.Name = "txtNewCategory";
-            this.txtNewCategory.Size = new System.Drawing.Size(100, 20);
-            this.txtNewCategory.TabIndex = 3;
+            this.txtIncomeInput.Location = new System.Drawing.Point(6, 510);
+            this.txtIncomeInput.Name = "txtIncomeInput";
+            this.txtIncomeInput.Size = new System.Drawing.Size(100, 20);
+            this.txtIncomeInput.TabIndex = 3;
             // 
             // listBoxIncome
             // 
@@ -92,8 +93,9 @@
             // 
             // groupBoxExpense
             // 
+            this.groupBoxExpense.Controls.Add(this.btnAddExpense);
             this.groupBoxExpense.Controls.Add(this.button1);
-            this.groupBoxExpense.Controls.Add(this.textBox1);
+            this.groupBoxExpense.Controls.Add(this.txtExpenseInput);
             this.groupBoxExpense.Controls.Add(this.listBoxExpense);
             this.groupBoxExpense.Location = new System.Drawing.Point(466, 12);
             this.groupBoxExpense.Name = "groupBoxExpense";
@@ -104,19 +106,17 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(6, 536);
+            this.button1.Location = new System.Drawing.Point(0, 0);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Добавить";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.TabIndex = 0;
             // 
-            // textBox1
+            // txtExpenseInput
             // 
-            this.textBox1.Location = new System.Drawing.Point(6, 510);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 3;
+            this.txtExpenseInput.Location = new System.Drawing.Point(6, 510);
+            this.txtExpenseInput.Name = "txtExpenseInput";
+            this.txtExpenseInput.Size = new System.Drawing.Size(100, 20);
+            this.txtExpenseInput.TabIndex = 3;
             // 
             // listBoxExpense
             // 
@@ -127,6 +127,16 @@
             this.listBoxExpense.Name = "listBoxExpense";
             this.listBoxExpense.Size = new System.Drawing.Size(209, 555);
             this.listBoxExpense.TabIndex = 3;
+            // 
+            // btnAddExpense
+            // 
+            this.btnAddExpense.Location = new System.Drawing.Point(6, 536);
+            this.btnAddExpense.Name = "btnAddExpense";
+            this.btnAddExpense.Size = new System.Drawing.Size(75, 23);
+            this.btnAddExpense.TabIndex = 4;
+            this.btnAddExpense.Text = "Добавить";
+            this.btnAddExpense.UseVisualStyleBackColor = true;
+            this.btnAddExpense.Click += new System.EventHandler(this.btnAddExpense_Click);
             // 
             // Kategories
             // 
@@ -154,12 +164,13 @@
 
         private System.Windows.Forms.Button GoBack;
         private System.Windows.Forms.GroupBox groupBoxIncome;
-        private System.Windows.Forms.Button btnAddCategory;
-        private System.Windows.Forms.TextBox txtNewCategory;
+        private System.Windows.Forms.Button btnAddIncome;
+        private System.Windows.Forms.TextBox txtIncomeInput;
         private System.Windows.Forms.GroupBox groupBoxExpense;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtExpenseInput;
         private System.Windows.Forms.ListBox listBoxExpense;
         private System.Windows.Forms.ListBox listBoxIncome;
+        private System.Windows.Forms.Button btnAddExpense;
     }
 }

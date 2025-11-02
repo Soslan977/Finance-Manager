@@ -18,7 +18,7 @@ namespace Finance_Manager
         public static FinanceManagerMain Instance { get; private set; }
         private bool menuIsVisible = false;
         private List<Transaction> transactions = new List<Transaction>();
-        private bool isIncomeMode = true;
+        public bool isIncomeMode = true;
         private List<string> categories = new List<string>();
         public FinanceManagerMain()
         {
@@ -86,7 +86,6 @@ namespace Finance_Manager
         }
 
 
-       
 
         private void AddMenuItems()
         {
@@ -129,17 +128,60 @@ namespace Finance_Manager
 
         private void Expensesbutton1_Click(object sender, EventArgs e)
         {
-
+            isIncomeMode = false;
+            UpdateChart();
         }
 
         private void Доходы_Click(object sender, EventArgs e)
         {
+            isIncomeMode = true;
+            UpdateChart();
+        }
+        private void UpdateChart()
+        {
+            chartGraphic.Series[0].Points.Clear();
 
+            var filteredTransactions = isIncomeMode
+                ? transactions.Where(t => t.IsIncome)
+                : transactions.Where(t => !t.IsIncome);
+
+            var grouped = filteredTransactions
+                .GroupBy(t => t.Category)
+                .Select(g => new { Category = g.Key, Total = g.Sum(t => t.Amount) });
+
+            foreach (var item in grouped)
+            {
+                chartGraphic.Series[0].Points.AddXY(item.Category, item.Total);
+            }
+
+            UpdateBalance();
+        }
+
+        // Обновление баланса
+        private void UpdateBalance()
+        {
+            decimal totalIncome = transactions.Where(t => t.IsIncome).Sum(t => t.Amount);
+            decimal totalExpenses = transactions.Where(t => !t.IsIncome).Sum(t => t.Amount);
+            decimal balance = totalIncome - totalExpenses;
+
+            lblBalance.Text = $"Баланс: {balance:C}";
         }
 
         private void AddTransaction_Click(object sender, EventArgs e)
         {
+            using (var addForm = new AddTransactionForm())
+            {
+                if (addForm.ShowDialog() == DialogResult.OK)
+                {
+                    // Получаем данные из формы
+                    var transaction = addForm.Transaction;
 
+                    transactions.Add(transaction);
+
+                    UpdateChart();
+                    UpdateBalance();
+                }
+            }
         }
 
        
