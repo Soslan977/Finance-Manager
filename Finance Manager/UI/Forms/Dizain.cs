@@ -8,11 +8,120 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using static Finance_Manager.UI.Forms.Dizain.ThemeManager;
 
 namespace Finance_Manager.UI.Forms
 {
     public partial class Dizain : Form
     {
+        // Создаём статический менеджер тем
+        public static class ThemeManager
+        {
+            private static string filePath = "theme.txt";
+            public static event EventHandler ThemeChanged;
+
+            public enum ThemeType
+            {
+                Light = 0,
+                Dark = 1
+            }
+
+            private static ThemeType _currentTheme;
+            public static ThemeType CurrentTheme
+            {
+                get => _currentTheme;
+                set
+                {
+                    _currentTheme = value;
+                    ThemeChanged?.Invoke(null, EventArgs.Empty);
+                }
+            }
+
+            public static void SaveTheme(ThemeType theme)
+            {
+                try
+                {
+                    File.WriteAllText(filePath, ((int)theme).ToString());
+                }
+                catch { }
+            }
+
+            public static ThemeType LoadTheme()
+            {
+                if (File.Exists(filePath))
+                {
+                    try
+                    {
+                        return (ThemeType)int.Parse(File.ReadAllText(filePath));
+                    }
+                    catch { }
+                }
+                return ThemeType.Light; // По умолчанию светлая тема
+            }
+        }
+
+        public Dizain()
+        {
+            InitializeComponent();
+            // Подписываемся на изменение темы
+            ThemeManager.ThemeChanged += OnThemeChanged;
+            // Загружаем и применяем текущую тему
+            ThemeManager.CurrentTheme = ThemeManager.LoadTheme();
+            ApplyTheme(ThemeManager.CurrentTheme);
+        }
+
+        private void OnThemeChanged(object sender, EventArgs e)
+        {
+            ApplyTheme(ThemeManager.CurrentTheme);
+        }
+
+        private void ApplyTheme(ThemeType theme)
+        {
+            ApplyControlsTheme(this, theme);
+        }
+
+        private void ApplyControlsTheme(Form form, ThemeType theme)
+        {
+            form.BackColor = theme == ThemeType.Light ? Color.White : Color.FromArgb(30, 30, 30);
+            form.ForeColor = theme == ThemeType.Light ? Color.Black : Color.White;
+
+            foreach (Control ctrl in form.Controls)
+            {
+                if (ctrl is Button button)
+                {
+                    button.ForeColor = theme == ThemeType.Light ? Color.Black : Color.White;
+                    if (button == DarkTheme)
+                    {
+                        button.BackColor = theme == ThemeType.Light ? Color.LightGray : Color.LightBlue;
+                    }
+                    else if (button == LightTheme)
+                    {
+                        button.BackColor = theme == ThemeType.Light ? Color.LightBlue : Color.LightGray;
+                        button.ForeColor = theme == ThemeType.Light ? Color.White : Color.Black;
+                    }
+                    else
+                    {
+                        button.BackColor = theme == ThemeType.Light ? Color.White : Color.FromArgb(50, 50, 50);
+                    }
+                }
+                else if (ctrl is Label label)
+                {
+                    label.ForeColor = theme == ThemeType.Light ? Color.Black : Color.White;
+                }
+            }
+        }
+
+        private void LightTheme_Click(object sender, EventArgs e)
+        {
+            ThemeManager.CurrentTheme = ThemeType.Light;
+            ThemeManager.SaveTheme(ThemeType.Light);
+        }
+
+        private void DarkTheme_Click_1(object sender, EventArgs e)
+        {
+            ThemeManager.CurrentTheme = ThemeType.Dark;
+            ThemeManager.SaveTheme(ThemeType.Dark);
+        }
 
         private void GoBack_Click(object sender, EventArgs e)
         {
@@ -20,147 +129,32 @@ namespace Finance_Manager.UI.Forms
             this.Close();
         }
 
-        public static class ThemeSaver
-        {
-            private static string filePath = "theme.txt";
-
-            public static void SaveTheme(int theme)
-            {
-                try
-                {
-                    File.WriteAllText(filePath, theme.ToString());
-                }
-                catch { }
-            }
-
-            public static int LoadTheme()
-            {
-                if (File.Exists(filePath))
-                {
-                    try
-                    {
-                        return int.Parse(File.ReadAllText(filePath));
-                    }
-                    catch { }
-                }
-                return 0; // По умолчанию светлая тема
-            }
-        }
-
-        private enum ThemeType
-        {
-            Light = 0,
-            Dark = 1
-        }
-
-        private ThemeType currentTheme;
-
-        public Dizain()
-        {
-            InitializeComponent();
-
-            currentTheme = (ThemeType)ThemeSaver.LoadTheme();
-            ApplyTheme(currentTheme);
-        }
-
-        private void ApplyTheme(ThemeType theme)
-        {
-            currentTheme = theme;
-            ApplyThemeToAllForms(theme);
-        }
-
-        private void ApplyThemeToAllForms(ThemeType theme)
+        // Добавляем метод для применения темы ко всем формам
+        public void ApplyThemeToAllForms(ThemeType theme)
         {
             foreach (Form form in Application.OpenForms)
             {
-                ApplyControlsTheme(form, theme);
-            }
-        }
-
-        private void ApplyControlsTheme(Form form, ThemeType theme)
-        {
-            switch (theme)
-            {
-                case ThemeType.Light:
-                    form.BackColor = Color.White;
-                    form.ForeColor = Color.Black;
-                    ApplyLightThemeControls(form);
-                    break;
-                case ThemeType.Dark:
-                    form.BackColor = Color.FromArgb(30, 30, 30);
-                    form.ForeColor = Color.White;
-                    ApplyDarkThemeControls(form);
-                    break;
-            }
-        }
-
-        private void ApplyLightThemeControls(Form form)
-        {
-            foreach (Control ctrl in form.Controls)
-            {
-                if (ctrl is Button button)
+                // Проверяем, что форма поддерживает интерфейс IThemeable
+                if (form is IThemeable themeableForm)
                 {
-                    button.ForeColor = Color.Black;
-                    if (button == DarkTheme)
+                    // Применяем тему только если это не текущая форма
+                    if (form != this)
                     {
-                        button.BackColor = Color.LightGray;
-                    }
-                    else if (button == LightTheme)
-                    {
-                        button.BackColor = Color.LightBlue;
-                        button.ForeColor = Color.White;
+                        themeableForm.ApplyTheme(theme);
                     }
                     else
                     {
-                        button.BackColor = Color.White;
+                        // Для текущей формы применяем тему напрямую
+                        ApplyControlsTheme(form, theme);
                     }
-                }
-                else if (ctrl is Label label)
-                {
-                    label.ForeColor = Color.Black;
                 }
             }
         }
+    }
 
-        private void ApplyDarkThemeControls(Form form)
-        {
-            foreach (Control ctrl in form.Controls)
-            {
-                if (ctrl is Button button)
-                {
-                    if (button == DarkTheme)
-                    {
-                        button.BackColor = Color.LightBlue;
-                        button.ForeColor = Color.White;
-                    }
-                    else if (button == LightTheme)
-                    {
-                        button.BackColor = Color.LightGray;
-                        button.ForeColor = Color.Black;
-                    }
-                    else
-                    {
-                        button.BackColor = Color.FromArgb(50, 50, 50);
-                        button.ForeColor = Color.White;
-                    }
-                }
-                else if (ctrl is Label label)
-                {
-                    label.ForeColor = Color.White;
-                }
-            }
-        }
-
-        private void LightTheme_Click(object sender, EventArgs e)
-        {
-            ApplyTheme(ThemeType.Light);
-            ThemeSaver.SaveTheme((int)ThemeType.Light);
-        }
-
-        private void DarkTheme_Click_1(object sender, EventArgs e)
-        {
-            ApplyTheme(ThemeType.Dark);
-            ThemeSaver.SaveTheme((int)ThemeType.Dark);
-        }
+    // Определяем интерфейс для форм, поддерживающих смену темы
+    public interface IThemeable
+    {
+        void ApplyTheme(ThemeType theme);
     }
 }

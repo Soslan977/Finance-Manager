@@ -283,7 +283,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;chartGraphic.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="lblBalance.Location" type="System.Drawing.Point, System.Drawing">
     <value>259, 224</value>
@@ -295,7 +295,7 @@
     <value>8</value>
   </data>
   <data name="lblBalance.Text" xml:space="preserve">
-    <value>label1</value>
+    <value>Баланс</value>
   </data>
   <data name="&gt;&gt;lblBalance.Name" xml:space="preserve">
     <value>lblBalance</value>
@@ -307,7 +307,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lblBalance.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>1</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>

@@ -10,10 +10,12 @@ using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
 using Finance_Manager.models;
 using Finance_Manager.UI.Forms;
+using static Finance_Manager.UI.Forms.Dizain;
+using static Finance_Manager.UI.Forms.Dizain.ThemeManager;
 
 namespace Finance_Manager
 {
-    public partial class FinanceManagerMain : Form
+    public partial class FinanceManagerMain : Form, IThemeable
     {
         public static FinanceManagerMain Instance { get; private set; }
         private bool menuIsVisible = false;
@@ -33,8 +35,42 @@ namespace Finance_Manager
 
             InitializeCategories();
 
+            ThemeManager.ThemeChanged += OnThemeChanged;
+            ApplyTheme(ThemeManager.CurrentTheme);
+
 
         }
+        private void OnThemeChanged(object sender, EventArgs e)
+        {
+            ApplyTheme(ThemeManager.CurrentTheme);
+        }
+        public void ApplyTheme(ThemeType theme)
+        {
+            // Логика применения темы к элементам управления данной формы
+            this.BackColor = theme == ThemeType.Light ? Color.White : Color.FromArgb(30, 30, 30);
+            this.ForeColor = theme == ThemeType.Light ? Color.Black : Color.White;
+
+            foreach (Control ctrl in this.Controls)
+            {
+                if (ctrl is Button button)
+                {
+                    button.ForeColor = theme == ThemeType.Light ? Color.Black : Color.White;
+                    button.BackColor = theme == ThemeType.Light ? Color.White : Color.FromArgb(50, 50, 50);
+                }
+                else if (ctrl is Label label)
+                {
+                    label.ForeColor = theme == ThemeType.Light ? Color.Black : Color.White;
+                }
+            }
+        }
+
+        protected override void OnFormClosed(FormClosedEventArgs e)
+        {
+            // Отписываемся от события при закрытии формы
+            ThemeManager.ThemeChanged -= OnThemeChanged;
+            base.OnFormClosed(e);
+        }
+    
 
         private void MainForm_Load(object sender, EventArgs e)
         {
@@ -61,7 +97,6 @@ namespace Finance_Manager
         private void MenuItem_Click(object sender, EventArgs e)
         {
             var button = (Button)sender;
-            
 
             switch (button.Text)
             {
@@ -89,7 +124,7 @@ namespace Finance_Manager
 
         private void AddMenuItems()
         {
-            var items = new[] { "Настройки", "Категории", "Графики", "Регулярный платеж","Дизайн","Валюта" };
+            var items = new[] { "Категории", "Графики", "Регулярный платеж","Дизайн","Валюта" };
 
             foreach (var item in items)
             {
@@ -141,11 +176,11 @@ namespace Finance_Manager
         {
             chartGraphic.Series[0].Points.Clear();
 
-            var filteredTransactions = isIncomeMode
-                ? transactions.Where(t => t.IsIncome)
-                : transactions.Where(t => !t.IsIncome);
+            var filteredTransactions = isIncomeMode  // Фильтруем транзакции в зависимости от режима (доход/расход)
+                ? transactions.Where(t => t.IsIncome)  // если режим дохода - берем только доходы
+                : transactions.Where(t => !t.IsIncome); // иначе берем расходы
 
-            var grouped = filteredTransactions
+            var grouped = filteredTransactions // Группируем отфильтрованные транзакции по категориям  и считаем общую сумму для каждой категории
                 .GroupBy(t => t.Category)
                 .Select(g => new { Category = g.Key, Total = g.Sum(t => t.Amount) });
 
