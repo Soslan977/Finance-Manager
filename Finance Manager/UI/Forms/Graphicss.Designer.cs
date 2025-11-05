@@ -45,7 +45,7 @@
             // 
             // IncomeGraphic
             // 
-            this.IncomeGraphic.Location = new System.Drawing.Point(248, 12);
+            this.IncomeGraphic.Location = new System.Drawing.Point(160, 12);
             this.IncomeGraphic.Name = "IncomeGraphic";
             this.IncomeGraphic.Size = new System.Drawing.Size(133, 49);
             this.IncomeGraphic.TabIndex = 1;
@@ -61,7 +61,7 @@
             this.ExpensesGraphic.Text = "Расходы";
             this.ExpensesGraphic.UseVisualStyleBackColor = true;
             // 
-            // Graphics
+            // Graphicss
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -73,7 +73,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "Graphics";
+            this.Name = "Graphicss";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Graphics";
             this.ResumeLayout(false);
